@@ -4,18 +4,34 @@ React native wrapper for HintRequest api on android
 
 ## Installation
 
+### NPM
 ```sh
 npm install react-native-hint-request-picker
 ```
 
+### Yarn
+```sh
+yarn add react-native-hint-request-picker
+```
+
 ## Usage
 
+### Picker for Phone number
 ```js
-import HintRequestPicker from "react-native-hint-request-picker";
+import { getPhoneNumber } from "react-native-hint-request-picker";
 
 // ...
 
-const result = await HintRequestPicker.multiply(3, 7);
+const result = await getPhoneNumber();
+```
+
+### Picker for Google Accounts
+```js
+import  { getGoogleAccount } from "react-native-hint-request-picker";
+
+// ...
+
+const result = await getGoogleAccount();
 ```
 
 ## Contributing
