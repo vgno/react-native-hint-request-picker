@@ -1,32 +1,55 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import HintRequestPicker from 'react-native-hint-request-picker';
-
+import { StyleSheet, View, Text, Button } from 'react-native';
+import {
+    getPhoneNumber,
+    getGoogleAccount,
+} from 'react-native-hint-request-picker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+    const [result, setResult] = React.useState<string | undefined>();
 
-  React.useEffect(() => {
-    HintRequestPicker.multiply(3, 7).then(setResult);
-  }, []);
+    React.useEffect(() => {
+        // getPhoneNumber().then((data) => {
+        //   setResult(data.phoneNumber);
+        //   alert(data.phoneNumber);
+        // }).catch((e) => alert(e));
+    }, []);
 
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
+    const email = () => {
+        getGoogleAccount()
+            .then((data) => {
+                setResult(JSON.stringify(data));
+            })
+            .catch((e) => console.log(e));
+    };
+
+    const phone = () => {
+        getPhoneNumber()
+            .then((data) => {
+                setResult(data.phoneNumber);
+            })
+            .catch((e) => console.log(e));
+    };
+    return (
+        <View style={styles.container}>
+            <Button title="Email" onPress={email}></Button>
+            <Text>{'\n'}</Text>
+            <Button title="Phone" onPress={phone}></Button>
+            <Text>Result: {result}</Text>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    box: {
+        width: 60,
+        height: 60,
+        marginVertical: 20,
+    },
 });
