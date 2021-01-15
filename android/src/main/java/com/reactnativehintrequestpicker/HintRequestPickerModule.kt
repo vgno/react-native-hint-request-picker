@@ -42,7 +42,10 @@ class HintRequestPickerModule(private val reactContext: ReactApplicationContext)
       .emit(eventName, params)
   }
 
-  override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent) {
+  override fun onActivityResult(activity: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
+    if(data == null){
+      return;
+    }
     if (requestCode === Constants.PHONE_PICKER_REQUEST) {
       val map = Arguments.createMap()
       if (resultCode === RESULT_OK) {
