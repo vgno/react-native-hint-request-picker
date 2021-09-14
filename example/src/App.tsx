@@ -33,9 +33,9 @@ export default function App() {
     };
     return (
         <View style={styles.container}>
-            <Button title="Email" onPress={email}></Button>
+            <Button title="Email" onPress={email} />
             <Text>{'\n'}</Text>
-            <Button title="Phone" onPress={phone}></Button>
+            <Button title="Phone" onPress={phone} />
             <Text>Result: {result}</Text>
         </View>
     );
