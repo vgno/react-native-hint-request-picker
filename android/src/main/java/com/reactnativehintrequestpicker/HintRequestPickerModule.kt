@@ -50,9 +50,6 @@ class HintRequestPickerModule(private val reactContext: ReactApplicationContext)
       val map = Arguments.createMap()
       if (resultCode === RESULT_OK) {
         val credential = data.getParcelableExtra<Credential>(Credential.EXTRA_KEY)
-        if (credential == null) {
-          return;
-        }
         val phoneNumber = credential?.getId();
         map.putString("phoneNumber", phoneNumber);
       } else {
