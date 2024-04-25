@@ -1,4 +1,11 @@
-# react-native-hint-request-picker
+## react-native-hint-request-picker
+
+# Deprecated!
+
+Use something like this instead: https://www.npmjs.com/package/react-native-phone-hint
+
+
+
 
 React native wrapper for HintRequest api on android
 
